@@ -35,12 +35,15 @@ export default class Login extends Component {
   }
 
   async handleSignIn() {
+    Alert.alert('Handle SignIn')
     try {
       this.setState({ errorMessage: "" });
       const { email, password } = this.state;
       const result = await axios.post("/auth/login", { email, password });
+      console.log(result)
       this.props.handleChange("token", result.data.token);
     } catch (error) {
+      console.log('error', error)
       this.setState({ errorMessage: error.response.data.message });
     }
   }
@@ -48,7 +51,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.headerText}>React Native Taxi</Text>
+        <Text style={styles.headerText}>Mobile Auto Repair</Text>
         <LoginForm
           email={this.state.email}
           password={this.state.password}

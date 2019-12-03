@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mongoDbConnectionString = require("./config/mongodb");
+// const mongoDbConnectionString = require("./config/mongodb");
 const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/users");
@@ -18,7 +18,7 @@ app.use("/users", userRouter);
 app.use(errorMiddleware);
 
 mongoose
-  .connect(mongoDbConnectionString, { useNewUrlParser: true })
+  .connect('mongodb://127.0.0.1:27017/Motor', { useNewUrlParser: true })
   .then(result => {
     console.log("Connected to Mongodb");
     app.listen(PORT, () => {

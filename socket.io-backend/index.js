@@ -11,11 +11,22 @@ io.on("connection", socket => {
   console.log("a user connected :D");
   socket.on("taxiRequest", taxiRoute => {
     passengerSocket = socket;
-    console.log("Someone wants a taxi!");
+    console.log("Someone wants a taxi!", taxiRoute);
     if (taxiSocket !== null) {
       taxiSocket.emit("taxiRequest", taxiRoute);
     }
   });
+
+  socket.on("MechanicRequest", taxiRoute => {
+    passengerSocket = socket;
+    console.log("Someone wants a mechanic", taxiRoute);
+    if (taxiSocket !== null) {
+      taxiSocket.emit("MechanicRequest", taxiRoute);
+    }
+  });
+
+
+  
 
   socket.on("driverLocation", driverLocation => {
     console.log(driverLocation);
@@ -26,6 +37,9 @@ io.on("connection", socket => {
     console.log("Someone wants a passenger!");
     taxiSocket = socket;
   });
+
+
+
 });
 
 server.listen(port, () => console.log("server running on port:" + port));

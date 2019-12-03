@@ -9,7 +9,7 @@ import {
   ActivityIndicator
 } from "react-native";
 import MapView, { Polyline, Marker } from "react-native-maps";
-import apiKey from "../google_api_key";
+// import apiKey from "../google_api_key";
 import _ from "lodash";
 import socketIO from "socket.io-client";
 import BottomButton from "../components/BottomButton";
@@ -29,7 +29,7 @@ export default class Passenger extends Component {
   }
 
   async onChangeDestination(destination) {
-    const apiUrl = `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=${apiKey}
+    const apiUrl = `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=${'AIzaSyArVMQjscvhmO1dNEYa75A-8gSxOawJp6I'}
     &input=${destination}&location=${this.props.latitude},${
       this.props.longitude
     }&radius=2000`;

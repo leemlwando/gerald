@@ -16,7 +16,7 @@ export default class DriverOrPassenger extends Component {
           onPress={() => this.props.handleChange("isDriver", true)}
           style={[styles.choiceContainer, { borderBottomWidth: 1 }]}
         >
-          <Text style={styles.choiceText}>I'm a driver</Text>
+          <Text style={styles.choiceText}>I'm a Driver</Text>
           <Image
             source={require("../images/steeringwheel.png")}
             style={styles.selectionImage}
@@ -26,7 +26,7 @@ export default class DriverOrPassenger extends Component {
           onPress={() => this.props.handleChange("isPassenger", true)}
           style={styles.choiceContainer}
         >
-          <Text style={styles.choiceText}>I'm a passenger</Text>
+          <Text style={styles.choiceText}>I'm a Mechanic</Text>
           <Image
             source={require("../images/passenger.png")}
             style={styles.selectionImage}

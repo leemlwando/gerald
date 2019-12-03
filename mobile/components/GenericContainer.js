@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Keyboard, PermissionsAndroid, Platform } from "react-native";
 import PolyLine from "@mapbox/polyline";
-import apiKey from "../google_api_key";
+// import apiKey from "../google_api_key";
+import Geolocation from '@react-native-community/geolocation';
+
+Geolocation.setRNConfiguration({});
 
 function genericContainer(WrappedComponent) {
   return class extends Component {
     constructor(props) {
       super(props);
+      // this.navigator.geolocation = Geolocation;
       this.state = {
         latitude: null,
         longitude: null,
@@ -18,7 +22,7 @@ function genericContainer(WrappedComponent) {
     }
 
     componentWillUnmount() {
-      navigator.geolocation.clearWatch(this.watchId);
+      Geolocation.clearWatch(this.watchId);
     }
 
     async checkAndroidPermissions() {
@@ -50,7 +54,7 @@ function genericContainer(WrappedComponent) {
         granted = await this.checkAndroidPermissions();
       }
       if (granted)
-        this.watchId = navigator.geolocation.watchPosition(
+        this.watchId = Geolocation.watchPosition(
           position => {
             this.setState({
               latitude: position.coords.latitude,
@@ -69,7 +73,7 @@ function genericContainer(WrappedComponent) {
             this.state.latitude
           },${
             this.state.longitude
-          }&destination=place_id:${destinationPlaceId}&key=${apiKey}`
+          }&destination=place_id:${destinationPlaceId}&key=${'AIzaSyArVMQjscvhmO1dNEYa75A-8gSxOawJp6I'}`
         );
         console.log(response);
         const json = await response.json();
