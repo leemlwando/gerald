@@ -10,7 +10,7 @@
     "@mapbox/polyline": "^1.0.0",
     "@react-native-community/geolocation": "^2.0.2",
     "axios": "^0.18.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react": "16.6.3",
     "react-native": "0.57.8",
     "react-native-device-info": "2.1.2",
